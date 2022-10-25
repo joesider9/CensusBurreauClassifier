@@ -1,5 +1,6 @@
 # Script to train machine learning model.
 import os, sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "ml"))
 
 import joblib
@@ -10,7 +11,6 @@ from ml.model import train_model
 from ml.model import inference
 from ml.model import compute_model_metrics
 from sklearn.model_selection import train_test_split
-
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()

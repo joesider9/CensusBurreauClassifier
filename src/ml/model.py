@@ -12,7 +12,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.pipeline import Pipeline
 
-from src.ml.data import *
+from data import *
 
 params = {
     'random_forest__max_depth': np.unique(np.linspace(1, 15, num=5).astype('int')).tolist() + [None],
