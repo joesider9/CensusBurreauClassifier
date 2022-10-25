@@ -18,7 +18,7 @@ def data():
     -------
     data: pd.Dataframe
     """
-    file = '../data/census.csv'
+    file = './data/census.csv'
 
     if not os.path.exists(file):
         pytest.fail('File does not exists')
