@@ -40,7 +40,7 @@ def fit():
     ml_pipe = train_model(X_train, y_train, categorical_feats, numerical_feats)
     logger.info('Training process ends successfully')
 
-    joblib.load(ml_pipe, '../models/model_pipe.pkl')
+    joblib.dump(ml_pipe, '../models/model_pipe.pkl')
     logger.info('Model saved on /models path')
 
     y_pred = inference(ml_pipe, X_test)

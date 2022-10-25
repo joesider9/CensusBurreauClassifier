@@ -39,9 +39,7 @@ def test_output_less_than_50K():
     pred = post.json()
     assert post.status_code == 200
     assert 'Answer' in pred.keys()
-    assert 'Actual' in pred.keys()
     assert pred['Answer'] == '<=50K'
-    assert pred['Actual'] == '<=50K'
 
 
 def test_output_greater_than_50K():
@@ -64,6 +62,21 @@ def test_output_greater_than_50K():
     pred = post.json()
     assert post.status_code == 200
     assert 'Answer' in pred.keys()
-    assert 'Actual' in pred.keys()
     assert pred['Answer'] == '>50K'
-    assert pred['Actual'] == '>50K'
+
+def test_mal_output():
+    data = {'age': 52,
+            'workclass': ' Self-emp-inc',
+            'fnlgt': 287927,
+            'education': ' HS-grad',
+            'relationship': ' Wife',
+            'race': ' White',
+            'sex': ' Female',
+            'capital_gain': 15024,
+            'capital_loss': 0,
+            'hours_per_week': 40,
+            'native_country': 'Other value',
+            'salary': ' >50K'}
+    post = client.post('/predict', json=data)
+    pred = post.json()
+    assert post.status_code != 200
