@@ -18,6 +18,6 @@ data = {'age': 52,
             'salary': ' >50K'}
 
 if __name__=='__main__':
-    r = requests.post('http://127.0.0.1:8000/predict', json=data)
+    r = requests.post('https://censusbureau.herokuapp.com//predict', json=data, auth=('joesider9@gmail.com', '^)"qfC.^7$(J7Zh'))
     print(f'status code is: {r.status_code}')
     print(r.json())

@@ -34,13 +34,13 @@ def fit():
     data, y, categorical_feats, numerical_feats = get_data()
     logger.info('Data loaded successfully')
 
-    X_train, X_test, y_train, y_test = train_test_split(data, y, test_size=0.20, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(data, y, test_size=0.20, random_state=42, stratify=y)
 
     logger.info('Training process starts...')
     ml_pipe = train_model(X_train, y_train, categorical_feats, numerical_feats)
     logger.info('Training process ends successfully')
 
-    joblib.dump(ml_pipe, '../models/model_pipe.pkl')
+    joblib.load(ml_pipe, '../models/model_pipe.pkl')
     logger.info('Model saved on /models path')
 
     y_pred = inference(ml_pipe, X_test)
