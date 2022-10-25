@@ -29,7 +29,7 @@ class InputData(BaseModel):
     capital_loss: int = Field(example=0)
     hours_per_week: int = Field(example=40)
     native_country: str = Field(example='Other value')
-    salary: str = Field(example='<=50K')
+
 
 
 app = FastAPI()
@@ -57,7 +57,6 @@ async def predict(data: InputData):
         x[feature].iloc[np.where(x.workclass == '?')] = np.nan
     x.native_country[x.native_country != 'United-States'] = 'Other_value'
 
-    data.salary = data.salary.strip()
 
     y_pred = inference(pipe, x)[0]
 
