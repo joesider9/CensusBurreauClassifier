@@ -25,7 +25,7 @@ def get_data():
             categorical_feats, index column, the list of categorical features
             numerical_feats, index column, the list of numerical features
     """
-    data = pd.read_csv('../data/census.csv')
+    data = pd.read_csv('./data/census.csv')
 
     data.columns = [col.strip().replace('-', '_') for col in data.columns]
 
