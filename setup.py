@@ -1,8 +1,8 @@
 import setuptools
 
 setuptools.setup(
-    name="starter",
+    name="CensusBureauClassifier",
     version="0.0.0",
-    description="Starter code.",
-    author="Student",
+    description="CI/CD using github actions, dvc data versioning, Heroku and Fastapi",
+    author="joesider",
 )
