@@ -34,10 +34,6 @@ class InputData(BaseModel):
 
 app = FastAPI()
 
-@app.on_event("startup")
-async def startup_event():
-    global pipe
-    pipe = joblib.load('./models/model_pipe.pkl')
 
 @app.get("/")
 async def greetings():
@@ -46,7 +42,7 @@ async def greetings():
 
 @app.post('/predict')
 async def predict(data: InputData):
-
+    pipe = joblib.load('./models/model_pipe.pkl')
     x = dict()
     for key, value in data.dict().items():
         if key != 'salary':
