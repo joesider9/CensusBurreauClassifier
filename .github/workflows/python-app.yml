@@ -37,6 +37,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest test_api.py 
-        cd src
-        pytest test_data.py
-        pytest test_train.py
+        pytest /src/test_data.py
+        pytest /src/test_train.py
