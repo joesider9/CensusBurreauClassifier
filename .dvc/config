@@ -1,4 +1,5 @@
 [core]
     remote = localremote
+    hardlink_lock = true
 ['remote "localremote"']
     url = ../data
